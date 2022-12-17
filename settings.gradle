@@ -1,2 +1,3 @@
 include ':praticalprogress'
 rootProject.name = "praticalprogress"
+include ':sample'
