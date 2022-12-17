@@ -1,2 +1,2 @@
-include ':app'
-rootProject.name = "Full Screen Progress"
+include ':praticalprogress'
+rootProject.name = "praticalprogress"
