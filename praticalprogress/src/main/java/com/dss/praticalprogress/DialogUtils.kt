@@ -9,10 +9,6 @@ import android.widget.ScrollView
 import androidx.core.view.get
 import androidx.recyclerview.widget.RecyclerView
 
-/**
- * Created by Gustavo Asevedo on 16/10/2020.
- */
-
 object DialogUtils {
     fun checkRemoveProgress(view: View, activity: Activity) {
 
@@ -32,16 +28,24 @@ object DialogUtils {
             var progressRemoved = false
             if (rootview[count] is ViewGroup) {
                 val childView = rootview[count] as ViewGroup
-                for (countChild in 0 until childView.childCount) {
-                    val view = childView[countChild]
-                    if (view is ProgressBar) {
-                        rootview.removeViewAt(count)
-                        progressRemoved = true
-                        break
-                    }
-                }
+                progressRemoved = removeFromChilds(childView, rootview, count)
             }
             if (progressRemoved) break
         }
+    }
+
+    private fun removeFromChilds(childView : ViewGroup, rootview : ViewGroup, count : Int) : Boolean{
+        var progressRemoved = false
+
+        for (countChild in 0 until childView.childCount) {
+            val view = childView[countChild]
+            if (view is ProgressBar) {
+                rootview.removeViewAt(count)
+                progressRemoved = true
+                break
+            }
+        }
+
+        return progressRemoved
     }
 }
