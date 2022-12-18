@@ -24,9 +24,7 @@ class TestActivity : AppCompatActivity() {
         }
 
         binding.btnStartItems.setOnClickListener {
-            ViewProgress().with(this).on(binding.textView).runProgressOnView()
-            ViewProgress().with(this).on(binding.imageView2).runProgressOnView()
-            ViewProgress().with(this).on(binding.switch1).runProgressOnView()
+            ViewProgress().with(this).on(binding.containerItems).load()
         }
 
         binding.btnStop.setOnClickListener {
